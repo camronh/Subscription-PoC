@@ -1,0 +1,18 @@
+{
+  "name": "subscription-poc",
+  "version": "1.0.0",
+  "description": "PoC that shows the flow of paying for Airnode access",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy-requester": "cd hardhat && yarn ropsten:deploy-requester",
+    "download-airnode": "docker pull api3/airnode-client:0.3.1",
+    "generate-seed-phrase": "docker run api3/airnode-admin:0.3.1 generate-mnemonic",
+    "stop-airnode": "docker stop quick-deploy-container-airnode && docker rm quick-deploy-container-airnode",
+    "start-airnode": "cd ./airnode && docker run --detach --volume $(pwd)/config:/app/config --name quick-deploy-container-airnode api3/airnode-client:0.3.1 && docker logs --follow quick-deploy-container-airnode",
+    "restart-airnode": "yarn stop-airnode && yarn start-airnode"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

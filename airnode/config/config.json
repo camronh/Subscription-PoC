@@ -1,0 +1,170 @@
+{
+  "chains": [
+    {
+      "authorizers": [],
+      "contracts": {
+        "AirnodeRrp": "0x3B35250Ca54C1Fb8c83D48F21231ef6e4fb9f79D"
+      },
+      "id": "3",
+      "providers": {
+        "Ropsten": {
+          "url": "${PROVIDER_URL}"
+        }
+      },
+      "type": "evm"
+    }
+  ],
+  "nodeSettings": {
+    "cloudProvider": {
+      "type": "local"
+    },
+    "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
+    "logFormat": "plain",
+    "logLevel": "INFO",
+    "nodeVersion": "0.3.1",
+    "stage": "dev",
+    "heartbeat": {
+      "enabled": false
+    },
+    "httpGateway": {
+      "enabled": false
+    }
+  },
+  "triggers": {
+    "rrp": [
+      {
+        "endpointId": "0xb46d3c17506312cf4b8c8a6248ba4610617e9628a9fd93389805db7986c96c29",
+        "endpointName": "GET /randomNumber",
+        "oisTitle": "CamsCSRNG"
+      },
+      {
+        "endpointId": "0x8e56e4bbe8936ad40c3b6bcd913778afb085637012ac2387ff8561cee9109871",
+        "endpointName": "GET /reveal",
+        "oisTitle": "CamsCSRNG"
+      }
+    ]
+  },
+  "ois": [
+    {
+      "oisFormat": "1.0.0",
+      "title": "CamsCSRNG",
+      "version": "v1",
+      "apiSpecifications": {
+        "servers": [
+          {
+            "url": "https://pljvuuzz1j.execute-api.us-east-1.amazonaws.com/latest"
+          }
+        ],
+        "security": {},
+        "components": {
+          "securitySchemes": {}
+        },
+        "paths": {
+          "/randomNumber": {
+            "get": {
+              "parameters": [
+                {
+                  "name": "address",
+                  "in": "query"
+                },
+                {
+                  "name": "commit",
+                  "in": "query"
+                },
+                {
+                  "name": "max",
+                  "in": "query"
+                }
+              ]
+            }
+          },
+          "/reveal": {
+            "get": {
+              "parameters": [
+                {
+                  "name": "hash",
+                  "in": "query"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "endpoints": [
+        {
+          "name": "GET /randomNumber",
+          "operation": {
+            "method": "get",
+            "path": "/randomNumber"
+          },
+          "reservedParameters": [
+            {
+              "name": "_type"
+            },
+            {
+              "name": "_path"
+            },
+            {
+              "name": "_times"
+            }
+          ],
+          "fixedOperationParameters": [],
+          "parameters": [
+            {
+              "name": "address",
+              "operationParameter": {
+                "name": "address",
+                "in": "query"
+              }
+            },
+            {
+              "name": "commit",
+              "operationParameter": {
+                "name": "commit",
+                "in": "query"
+              }
+            },
+            {
+              "name": "max",
+              "operationParameter": {
+                "name": "max",
+                "in": "query"
+              }
+            }
+          ],
+          "testable": true
+        },
+        {
+          "name": "GET /reveal",
+          "operation": {
+            "method": "get",
+            "path": "/reveal"
+          },
+          "reservedParameters": [
+            {
+              "name": "_type"
+            },
+            {
+              "name": "_path"
+            },
+            {
+              "name": "_times"
+            }
+          ],
+          "fixedOperationParameters": [],
+          "parameters": [
+            {
+              "name": "hash",
+              "operationParameter": {
+                "name": "hash",
+                "in": "query"
+              }
+            }
+          ],
+          "testable": true
+        }
+      ]
+    }
+  ],
+  "apiCredentials": []
+}

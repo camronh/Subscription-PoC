@@ -1,0 +1,31 @@
+{
+  "name": "hardhat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx hardhat compile",
+    "local:deploy-rrp": "npx hardhat run ./scripts/deploy-rrp.js --network localhost",
+    "ropsten:deploy-rrp": "npx hardhat run ./scripts/deploy-rrp.js --network ropsten",
+    "local:deploy-requester": "npx hardhat run ./scripts/deploy-requester.js --network localhost",
+    "ropsten:deploy-requester": "npx hardhat run ./scripts/deploy-requester.js --network ropsten"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.4",
+    "@nomiclabs/hardhat-waffle": "^2.0.2",
+    "chai": "^4.3.4",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.5.3",
+    "hardhat": "^2.8.3"
+  },
+  "dependencies": {
+    "@api3/airnode-admin": "^0.3.1",
+    "@api3/airnode-protocol": "^0.3.1",
+    "@openzeppelin/contracts": "^4.4.2",
+    "dotenv": "^14.2.0"
+  }
+}
