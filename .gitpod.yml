@@ -4,9 +4,9 @@ ports:
 tasks:
   - name: Front End
     init: cd frontend && npm install
-    command: cd frontend && npm run serve
+    command: npm run serve
   - name: Airnode
     command: yarn start-airnode
   - name: Contracts
     init: cd hardhat && npm i
-    command: cd hardhat && yarn build && echo "\nTo deploy a new requester contract run:\n\nyarn deploy-requester\n"
+    command: yarn build && echo "\nTo deploy a new requester contract run:\n\nyarn deploy-requester\n"
