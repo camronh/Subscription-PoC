@@ -58,4 +58,5 @@ async function main() {
   main();
 }
 
+console.log("Starting Whitelister...\n\n");
 main();
