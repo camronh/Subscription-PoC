@@ -12,4 +12,4 @@ tasks:
     command: node app
   - name: Contracts
     init: cd hardhat && npm i
-    command: yarn build && echo "\nTo deploy a new requester contract run:\n\nyarn deploy-requester\n"
+    command: yarn build && echo -e "\nTo deploy a new requester contract run:\n\nyarn deploy-requester\n"
