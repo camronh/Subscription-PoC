@@ -18,7 +18,7 @@ async function whitelist(ethAddress) {
   console.log(`Whitelisting: ${ethAddress}`);
   return new Promise((resolve, reject) => {
     childProcess.exec(
-      `docker run api3/airnode-admin:0.3.1 set-whitelist-expiration --mnemonic "${mnemonic}" --provider-url "${providerURL}" --endpoint-id 0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c --requester-address "${ethAddress}" --expiration-timestamp 1947451793 --airnode-address 0xCAc663035857b707aDF58674fA276C2aA74765BA`,
+      `docker run api3/airnode-admin:0.3.1 set-whitelist-expiration --mnemonic "${mnemonic}" --provider-url "${providerURL}" --endpoint-id 0xb46d3c17506312cf4b8c8a6248ba4610617e9628a9fd93389805db7986c96c29 --requester-address "${ethAddress}" --expiration-timestamp 1947451793 --airnode-address 0xCAc663035857b707aDF58674fA276C2aA74765BA`,
       function (err, stdout, stderr) {
         if (err) return reject(err);
         // console.log(stdout);

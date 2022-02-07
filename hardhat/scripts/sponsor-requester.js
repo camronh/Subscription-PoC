@@ -6,8 +6,8 @@ async function sponsorRequester(requesterAddress) {
   const mnemonic = process.env.AIRNODE_WALLET_MNEMONIC;
   const providerURL = process.env.PROVIDER_URL;
   //   const requesterAddress = "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0";
-  // const airnodeRrpAddress = "0xC11593B87f258672b8eB02d9A723a429b15E9E03";
-  const airnodeRrpAddress = "0x3B35250Ca54C1Fb8c83D48F21231ef6e4fb9f79D";
+  const airnodeRrpAddress = "0xC11593B87f258672b8eB02d9A723a429b15E9E03";
+  // const airnodeRrpAddress = "0x3B35250Ca54C1Fb8c83D48F21231ef6e4fb9f79D";
   // First obtain the contract instance on target chain
 
   const airnodeRrp = await airnodeAdmin.getAirnodeRrp(providerURL, {
@@ -30,6 +30,11 @@ async function sponsorRequester(requesterAddress) {
 //     console.error(error);
 //     process.exit(1);
 //   });
+
+if (require.main === module) {
+  const deployedAddress = require("../../frontend/src/contracts/address.json");
+  sponsorRequester(deployedAddress.address);
+}
 
 module.exports = {
   sponsorRequester,

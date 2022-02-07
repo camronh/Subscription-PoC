@@ -1,14 +1,14 @@
 {
   "chains": [
     {
-      "authorizers": [],
+      "authorizers": ["0x38DF5b7120b3B9b27238598d374779a37699379F"],
       "contracts": {
-        "AirnodeRrp": "0x3B35250Ca54C1Fb8c83D48F21231ef6e4fb9f79D"
+        "AirnodeRrp": "0xC11593B87f258672b8eB02d9A723a429b15E9E03"
       },
-      "id": "3",
+      "id": "4",
       "providers": {
-        "Ropsten": {
-          "url": "${PROVIDER_URL}"
+        "Rinkeby": {
+          "url": "${Rinkeby_PROVIDER_URL}"
         }
       },
       "type": "evm"

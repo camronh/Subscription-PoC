@@ -24,7 +24,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 module.exports = {
   solidity: "0.8.9",
   networks: {
-    ropsten: {
+    rinkeby: {
       url: process.env.PROVIDER_URL,
       accounts: [wallet.privateKey],
     },

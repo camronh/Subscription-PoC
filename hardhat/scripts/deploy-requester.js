@@ -17,19 +17,17 @@ async function main() {
   // manually to make sure everything is compiled
   // await hre.run('compile');
 
+  const rinkebyRRP = "0xC11593B87f258672b8eB02d9A723a429b15E9E03";
+
   const contractName = "Requester";
 
   // We get the contract to deploy
   const Requester = await hre.ethers.getContractFactory(contractName);
   //   console.log(Greeter);
-  const requester = await Requester.deploy(
-    "0x3B35250Ca54C1Fb8c83D48F21231ef6e4fb9f79D"
-  );
+  const requester = await Requester.deploy(rinkebyRRP);
 
   await requester.deployed();
   console.log("Deployed!");
-
-  await sponsorRequester(requester.address);
 
   fs.copyFileSync(
     path.join(
@@ -52,6 +50,10 @@ async function main() {
       address: requester.address,
     })
   );
+  await new Promise((resolve) => setTimeout(resolve, 5000));
+  console.log({ address: requester.address });
+
+  await sponsorRequester(requester.address);
 
   console.log(`\n\nRequester deployed to: ${requester.address}\n`);
   console.log(

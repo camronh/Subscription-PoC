@@ -14,7 +14,7 @@
               </v-btn>
               <v-spacer></v-spacer>
               <template v-if="walletConnected">
-                Gas Wallet Balance: {{ sponsorWalletBalance }}
+                Gas Wallet Balance: {{ sponsorWalletBalance }} ETH
               </template>
             </v-card-title>
             <v-card-subtitle class="grey--text text--darken-2">
@@ -192,8 +192,8 @@ export default {
     logText: "",
     endpointId:
       "0xb46d3c17506312cf4b8c8a6248ba4610617e9628a9fd93389805db7986c96c29",
-    airnodeWalletAddress: "0x61ca7B6DB6090a0eb1815c3B3a601A29A38Ebb4d",
-    sponsorWalletAddress: "0xABe79B326bDb543ceB39be2116ad363571A67CE7",
+    airnodeWalletAddress: "0xCAc663035857b707aDF58674fA276C2aA74765BA",
+    sponsorWalletAddress: "0x6946F59A800873D24979EFA240E5B3e3a64D32EE",
     sponsorWalletBalance: 0,
     sponsorWalletDialog: false,
     infoDialog: false,
@@ -254,16 +254,16 @@ export default {
           this.signer
         );
 
-        // this.sponsorWalletAddress =
-        //   await this.bettingContract.sponsorWalletAddress();
-
         this.sponsorWalletBalance = await this.provider.getBalance(
           this.sponsorWalletAddress
         );
 
         this.sponsorWalletBalance = ethers.utils.formatEther(
-          this.sponsorWalletBalance
+          this.sponsorWalletBalance,
+          { pad: true }
         );
+
+        // make this.sponsorWalletBalance 4 digits
 
         this.airnodeRrp = new ethers.Contract(
           this.RRPAddress,
@@ -349,12 +349,12 @@ export default {
           )
         );
 
-        const encodedData = await this.requesterContract.encodedData(requestId);
+        // const encodedData = await this.requesterContract.encodedData(requestId);
         const decodedData = await this.requesterContract.decodedData(requestId);
-        this.printToLog(`Encoded Data: \n${encodedData}`);
-        this.printToLog(`Decoded Data: \n${decodedData}`);
+        // this.printToLog(`Encoded Data: \n${encodedData}`);
+        this.printToLog(`Random Number: \n${decodedData}`);
 
-        console.log({ encodedData, decodedData });
+        console.log({ decodedData });
       } catch (error) {
         this.printToLog(error.message);
       }
