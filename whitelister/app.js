@@ -5,6 +5,8 @@ const childProcess = require("child_process"); // to execute shell commands
 
 const { consumerKey, consumerSecret, providerURL, mnemonic } = process.env;
 
+const sleepSeconds = 10;
+
 const WooCommerce = new WooCommerceRestApi({
   url: "http://13.233.252.69",
   consumerKey,
@@ -51,8 +53,8 @@ async function main() {
       console.log(error);
     }
   }
-  console.log("Done, sleeping...");
-  await new Promise((resolve) => setTimeout(resolve, 10000));
+  // console.log(`Done, sleeping for ${sleepSeconds} seconds...`);
+  await new Promise((resolve) => setTimeout(resolve, sleepSeconds * 1000));
   main();
 }
 
