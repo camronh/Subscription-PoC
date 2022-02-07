@@ -7,6 +7,9 @@ tasks:
     command: npm run serve
   - name: Airnode
     command: yarn start-airnode
+  - name: Whitelister
+    init: cd whitelister && npm install
+    command: node app
   - name: Contracts
     init: cd hardhat && npm i
     command: yarn build && echo "\nTo deploy a new requester contract run:\n\nyarn deploy-requester\n"
