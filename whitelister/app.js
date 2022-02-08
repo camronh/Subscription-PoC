@@ -44,7 +44,7 @@ async function main() {
   const { data: orders } = await WooCommerce.get("orders", {
     status: "processing,on-hold",
   });
-  console.log(`Found ${orders.length} orders`);
+  if (orders.length) console.log(`Found ${orders.length} orders`);
   for (let order of orders) {
     try {
       await whitelist(order.billing.ethaddress);
@@ -58,5 +58,5 @@ async function main() {
   main();
 }
 
-console.log("Starting Whitelister...\n\n");
+console.log("Listening for new orders...\n\n");
 main();
