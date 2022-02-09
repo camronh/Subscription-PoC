@@ -95,7 +95,7 @@ Go to our [API Provider Mock Webstore](http://13.233.252.69/product/api-subscrip
 
 At checkout, be sure to input the contract address from Step 5
 
-\***_IMAGE OF CHECKOUT ADDRESS_**
+![Insert contract address](https://user-images.githubusercontent.com/26840412/153293704-547d9101-f6b6-4ffe-be3f-c94f691e5c74.png)
 
 You can observe the whitelisting process if you switch to the Fulfillment Script terminal from Step 3.
 
