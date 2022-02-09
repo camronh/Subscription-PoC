@@ -1,15 +1,23 @@
-# Basic Sample Hardhat Project
+# Smart Contracts
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+> Here you can find all of the smart contracts and their scripts that are used.
 
-Try running some of the following tasks:
+We have preloaded a wallet mnemonic with some Rinkeby Eth for demonstration purposes. **Do not use this mnemonic on Mainnet Ethereum!!**
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+## Project setup
+
+```
+npm install
+```
+
+### Build contracts to be ready for deployment
+
+```
+npm run build
+```
+
+### Deploy a new requester contract
+
+```
+npm run deploy-requester
 ```

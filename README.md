@@ -1,16 +1,8 @@
-# Covid Bets
+# Airnode Authorizers PoC
 
-> A Proof-of-Concept that demonstrates how a user could pay for access to an Airnode using on-chain [Authorizers](https://docs.api3.org/airnode/v0.3/concepts/authorization.html#authorizers)
-
-<!-- ### Try the Live Demo [Here](https://master.d1tk9n2gcgnb7l.amplifyapp.com/)! -->
-
----
+> A Proof-of-Concept that demonstrates how a Web3 user could pay an API provider for access to their Airnode using on-chain [Authorizers](https://docs.api3.org/airnode/v0.3/concepts/authorization.html#authorizers)
 
 ## Under the Hood
-
-<!-- ![Airnode RRP Flow White](https://user-images.githubusercontent.com/26840412/150416083-f40acb84-fbd6-4d5a-a493-9a7a1a6dc53c.png)
-
-> More detailed [Diagram Here](https://docs.api3.org/airnode/v0.3/grp-developers/call-an-airnode.html) -->
 
 Secrets used on a public blockchain become public. It is important that we avoid sending API secrets over the blockchain while still allowing API providers granular control over user access. This can be achieved through whitelisting an address, similar to IP Address whitelisting, but for wallet/contract addresses.
 
@@ -18,7 +10,9 @@ API providers have the options of off-chain or on-chain whitelisting. On-chain w
 
 ![Authorizers Flow](https://user-images.githubusercontent.com/26840412/153293097-d53066e5-9292-4f79-bcbf-93c36e33e8ea.png)
 
-In this example, we take the role of a random number generation API provider that requires (sandbox) credit card payment through our [Webstore](http://13.233.252.69/). Our API subscription order form includes an `Eth_Address` field. Our [Fulfillment Script](/whitelister) whitelists the address using the [API3 RequesterAuthorizerWithAirnode Authorizer Contract](https://docs.api3.org/airnode/v0.3/concepts/authorization.html#requesterauthorizerwithairnode).
+> More detailed [Diagram Here](https://docs.api3.org/airnode/v0.3/concepts/authorization.html#authorizers)
+
+In this PoC, we take the role of a random number generation API provider that requires (sandbox) credit card payment through our [Webstore](http://13.233.252.69/). Our API subscription order form includes an `Eth_Address` field. Our [Fulfillment Script](/whitelister) whitelists that address using the [API3 RequesterAuthorizerWithAirnode Authorizer Contract](https://docs.api3.org/airnode/v0.3/concepts/authorization.html#requesterauthorizerwithairnode).
 
 ## Repo Structure
 
@@ -27,14 +21,13 @@ In this example, we take the role of a random number generation API provider tha
 - [Fulfillment Script](/api) - The Snowflake proxy API that handles authentication.
 - [Webstore](http://13.233.252.69/) - An example Wordpress Woocommerce PoS for API Subscriptions
 
-
- ----
+  ***
 
 # Instructions
 
 These steps should be followed to demonstrate the flow of being denied access, then being granted access and having your request responded to.
 
-> Using our Gitpod will automate your environment setup in the cloud to reduce the resources you'll need. We **highly** recommend using Gitpod if possible. Skip to step 5 if you are using Gitpod.
+> Using our Gitpod will automate your environment setup in a few minutes in the cloud to reduce the resources you'll need. We **highly** recommend using Gitpod if possible. Skip to step 5 if you are using Gitpod.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/camronh/Subscription-PoC)
 
@@ -104,4 +97,3 @@ You can observe the whitelisting process if you switch to the Fulfillment Script
 In the GUI, refresh the page, then request a random number again. You can keep an eye on the Airnode terminal from Step 1 to watch your request being fulfilled.
 
 **_ IMAGe of Response and terminal open in gitpod _**
-
