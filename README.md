@@ -78,7 +78,7 @@ yarn deploy-requester
 
 > Make sure your metamask is connected and you are on Rinkeby. You will need some rinkeby to make the original transaction of putting the request on chain.
 
-**_IMAGE OF GUI_**
+![Attempt Request](https://user-images.githubusercontent.com/26840412/153304922-1af53024-a5e5-4083-bc1a-62c8569108de.png)
 
 This request will fail and the request will hang in the in the GUI indefinitely. This is expected because we haven't been authorized. You can check the terminal from Step 2 for logs that should contain the `Unauthorized` message.
 
