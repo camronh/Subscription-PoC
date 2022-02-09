@@ -16,8 +16,7 @@ Secrets used on a public blockchain become public. It is important that we avoid
 
 API providers have the options of off-chain or on-chain whitelisting. On-chain whitelisting is achieved through Airnode's [Authorizers](https://docs.api3.org/airnode/v0.3/concepts/authorization.html#authorizers). When your Airnode finds a new request to process, if Authorizers are enabled, it checks a [Contract](https://docs.api3.org/airnode/v0.3/concepts/authorization.html#requesterauthorizerwithairnode) for authorization status before making the request to the API. Only the [mnemonic used in Airnode deployment](/airnode/config/secrets.env) will have permissions to update your whitelist, and you will have to pay for the gas used in the whitelisting transaction.
 
-***DIAGRAM***
-
+![Authorizers Flow](https://user-images.githubusercontent.com/26840412/153293097-d53066e5-9292-4f79-bcbf-93c36e33e8ea.png)
 
 In this example, we take the role of a random number generation API provider that requires (sandbox) credit card payment through our [Webstore](http://13.233.252.69/). Our API subscription order form includes an `Eth_Address` field. Our [Fulfillment Script](/whitelister) whitelists the address using the [API3 RequesterAuthorizerWithAirnode Authorizer Contract](https://docs.api3.org/airnode/v0.3/concepts/authorization.html#requesterauthorizerwithairnode).
 
