@@ -10,6 +10,6 @@ tasks:
   - name: Whitelister
     init: cd whitelister && npm install
     command: node app
-  - name: Contracts
+  - name: Hardhat
     init: cd hardhat && npm i
     command: yarn build && echo -e "\nTo deploy a new requester contract run:\n\nyarn deploy-requester\n"

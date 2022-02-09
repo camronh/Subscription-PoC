@@ -16,20 +16,26 @@ Secrets used on a public blockchain become public. It is important that we avoid
 
 API providers have the options of off-chain or on-chain whitelisting. On-chain whitelisting is achieved through Airnode's [Authorizers](https://docs.api3.org/airnode/v0.3/concepts/authorization.html#authorizers). When your Airnode finds a new request to process, if Authorizers are enabled, it checks a [Contract](https://docs.api3.org/airnode/v0.3/concepts/authorization.html#requesterauthorizerwithairnode) for authorization status before making the request to the API. Only the [mnemonic used in Airnode deployment](/airnode/config/secrets.env) will have permissions to update your whitelist, and you will have to pay for the gas used in the whitelisting transaction.
 
+***DIAGRAM***
+
+
 In this example, we take the role of a random number generation API provider that requires (sandbox) credit card payment through our [Webstore](http://13.233.252.69/). Our API subscription order form includes an `Eth_Address` field. Our [Fulfillment Script](/whitelister) whitelists the address using the [API3 RequesterAuthorizerWithAirnode Authorizer Contract](https://docs.api3.org/airnode/v0.3/concepts/authorization.html#requesterauthorizerwithairnode).
 
-## Structure
+## Repo Structure
 
 - [Airnode](/airnode) - Everything you need to run a First-Party Oracle.
 - [Front End](/frontend) - GUI for [Smart Contract](/hardhat) that requests random numbers
 - [Fulfillment Script](/api) - The Snowflake proxy API that handles authentication.
 - [Webstore](http://13.233.252.69/) - An example Wordpress Woocommerce PoS for API Subscriptions
 
-## Instructions
+
+ ----
+
+# Instructions
 
 These steps should be followed to demonstrate the flow of being denied access, then being granted access and having your request responded to.
 
-> Using our Gitpod will automate your environment setup in the cloud to reduce the resources you'll need. We **highly** recommend using Gitpod if possible. Skip to step UASFHJN if you are using Gitpod.
+> Using our Gitpod will automate your environment setup in the cloud to reduce the resources you'll need. We **highly** recommend using Gitpod if possible. Skip to step 5 if you are using Gitpod.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/camronh/Subscription-PoC)
 
@@ -68,7 +74,7 @@ cd hardhat
 yarn prep
 ```
 
-### 5. In the hardhat terminal, deploy a fresh and unauthorized contract
+### 5. In the Hardhat terminal, deploy a fresh and unauthorized contract
 
 ```sh
 yarn deploy-requester
