@@ -4,22 +4,13 @@
     <v-row justify="center" align="center">
       <v-col cols="12" md="9">
         <v-card elevation="10">
-          <v-card-text class="black--text">
+          <v-card-text>
             <v-card-title>
-              <h1>Requester PoC</h1>
-              <v-btn icon align="start" v-if="walletConnected">
-                <v-icon small color="primary" @click="infoDialog = true">
-                  mdi-information-outline
-                </v-icon>
-              </v-btn>
               <v-spacer></v-spacer>
               <template v-if="walletConnected">
-                Gas Wallet Balance: {{ sponsorWalletBalance }} ETH
+                Gas Wallet Balance: {{ balanceString }} ETH
               </template>
             </v-card-title>
-            <v-card-subtitle class="grey--text text--darken-2">
-              PoC that shows the flow of paying for whitelisting
-            </v-card-subtitle>
 
             <v-card-text align="center" justify="center">
               <v-sheet v-if="!walletConnected">
@@ -28,18 +19,40 @@
                 </v-btn>
               </v-sheet>
               <v-sheet v-else>
-                <v-card-title>Get a Random Number</v-card-title>
-                <v-card-text>
-                  <v-text-field label="Max" type="number" v-model="max">
-                  </v-text-field>
-                </v-card-text>
+                <v-row>
+                  <v-col cols="12" md="3"></v-col>
+                  <v-col cols="12" md="6">
+                    <v-card outlined>
+                      <v-card-text>
+                        <v-card-title>Request a Random Number</v-card-title>
+                        <v-col cols="12" md="7">
+                          <v-text-field
+                            label="Max Number"
+                            type="number"
+                            outlined
+                            v-model="max"
+                          >
+                          </v-text-field
+                        ></v-col>
+
+                        <v-btn
+                          @click="makeRequest"
+                          outlined
+                          :disabled="loading"
+                          color="primary"
+                        >
+                          Make Request
+                        </v-btn>
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+                  <v-col cols="12" md="3"></v-col>
+                </v-row>
               </v-sheet>
             </v-card-text>
             <v-card-actions v-if="walletConnected">
               <v-spacer></v-spacer>
-              <v-btn @click="makeRequest" outlined color="primary">
-                Make Request
-              </v-btn>
+
               <v-spacer></v-spacer>
             </v-card-actions>
           </v-card-text>
@@ -222,6 +235,10 @@ export default {
       return rrpArtifacts.abi;
     },
 
+    balanceString() {
+      return Number(this.sponsorWalletBalance).toFixed(4);
+    },
+
     RRPAddress() {
       switch (Number(this.chainId)) {
         case 31337:
@@ -273,6 +290,8 @@ export default {
         this.checkSponsorWallet();
         // Connect ethers to metamask
         console.log("Done!");
+        this.$emit("update:wallet", this.address);
+        this.$emit("update:sponsorWallet", this.sponsorWalletAddress);
       } catch (error) {
         console.log(error);
         this.provider = null;
