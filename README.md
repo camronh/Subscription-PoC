@@ -18,7 +18,7 @@ In this PoC, we take the role of a random number generation API provider that re
 
 - [Airnode](/airnode) - Everything you need to run a First-Party Oracle.
 - [Front End](/frontend) - GUI for [Smart Contract](/hardhat) that requests random numbers
-- [Fulfillment Script](/api) - The Snowflake proxy API that handles authentication.
+- [Fulfillment Script](/whitelister) - The Snowflake proxy API that handles authentication.
 - [Webstore](http://13.233.252.69/) - An example Wordpress Woocommerce PoS for API Subscriptions
 
   ***
