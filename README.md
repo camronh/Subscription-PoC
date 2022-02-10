@@ -96,4 +96,5 @@ You can observe the whitelisting process if you switch to the Fulfillment Script
 
 In the GUI, refresh the page, then request a random number again. You can keep an eye on the Airnode terminal from Step 1 to watch your request being fulfilled.
 
-**_ IMAGe of Response and terminal open in gitpod _**
+![Success!](https://user-images.githubusercontent.com/26840412/153442280-1c72aaac-9eb8-469e-806e-8a48d23fe56d.png)
+
