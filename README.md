@@ -66,7 +66,7 @@ cd hardhat
 yarn prep
 ```
 
-### 5. In the Hardhat terminal, deploy a fresh and unauthorized contract
+### 5. In the same terminal, deploy a fresh and unauthorized contract
 
 ```sh
 yarn deploy-requester
@@ -76,7 +76,7 @@ yarn deploy-requester
 
 ### 6. Attempt an API request using the GUI.
 
-> Make sure your metamask is connected and you are on Rinkeby. You will need some rinkeby to make the original transaction of putting the request on chain.
+> Make sure your metamask is connected and you are on Ropsten. You will need some Ropsten to make the original transaction of putting the request on chain.
 
 ![Attempt Request](https://user-images.githubusercontent.com/26840412/153304922-1af53024-a5e5-4083-bc1a-62c8569108de.png)
 

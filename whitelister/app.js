@@ -3,7 +3,13 @@ require("dotenv").config();
 const WooCommerceRestApi = require("@woocommerce/woocommerce-rest-api").default;
 const childProcess = require("child_process"); // to execute shell commands
 
-const { consumerKey, consumerSecret, providerURL, mnemonic } = process.env;
+const {
+  consumerKey,
+  consumerSecret,
+  Rinkeby_PROVIDER_URL,
+  Ropsten_PROVIDER_URL,
+  mnemonic,
+} = process.env;
 
 const sleepSeconds = 10;
 
@@ -18,7 +24,7 @@ async function whitelist(ethAddress) {
   console.log(`Whitelisting: ${ethAddress}`);
   return new Promise((resolve, reject) => {
     childProcess.exec(
-      `docker run api3/airnode-admin:0.3.1 set-whitelist-expiration --mnemonic "${mnemonic}" --provider-url "${providerURL}" --endpoint-id 0xb46d3c17506312cf4b8c8a6248ba4610617e9628a9fd93389805db7986c96c29 --requester-address "${ethAddress}" --expiration-timestamp 1947451793 --airnode-address 0xCAc663035857b707aDF58674fA276C2aA74765BA`,
+      `docker run api3/airnode-admin:0.3.1 set-whitelist-expiration --mnemonic "${mnemonic}" --provider-url "${Ropsten_PROVIDER_URL}" --endpoint-id 0xb46d3c17506312cf4b8c8a6248ba4610617e9628a9fd93389805db7986c96c29 --requester-address "${ethAddress}" --expiration-timestamp 1947451793 --airnode-address 0xCAc663035857b707aDF58674fA276C2aA74765BA`,
       function (err) {
         if (err) return reject(err);
         // console.log(stdout);

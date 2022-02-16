@@ -4,15 +4,15 @@ const airnodeAdmin = require("@api3/airnode-admin");
 async function sponsorRequester(requesterAddress) {
   console.log(`Sponsoring Requester...`);
   const mnemonic = process.env.AIRNODE_WALLET_MNEMONIC;
-  const providerURL = process.env.PROVIDER_URL;
+  const providerURL = process.env.Ropsten_PROVIDER_URL;
   //   const requesterAddress = "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0";
-  const airnodeRrpAddress = "0xC11593B87f258672b8eB02d9A723a429b15E9E03";
-  // const airnodeRrpAddress = "0x3B35250Ca54C1Fb8c83D48F21231ef6e4fb9f79D";
+  // const rinkebyRrpAddress = "0xC11593B87f258672b8eB02d9A723a429b15E9E03";
+  const ropstenRrpAddress = "0x3B35250Ca54C1Fb8c83D48F21231ef6e4fb9f79D";
   // First obtain the contract instance on target chain
 
   const airnodeRrp = await airnodeAdmin.getAirnodeRrp(providerURL, {
     signer: { mnemonic },
-    airnodeRrpAddress,
+    ropstenRrpAddress,
   });
 
   const requester = await airnodeAdmin.sponsorRequester(

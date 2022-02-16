@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx hardhat compile",
     "prep": "npm i && npx hardhat compile",
-    "deploy-requester": "yarn rinkeby:deploy-requester",
+    "deploy-requester": "yarn ropsten:deploy-requester",
     "local:deploy-rrp": "npx hardhat run ./scripts/deploy-rrp.js --network localhost",
     "ropsten:deploy-rrp": "npx hardhat run ./scripts/deploy-rrp.js --network ropsten",
     "rinkeby:deploy-rrp": "npx hardhat run ./scripts/deploy-rrp.js --network rinkeby",

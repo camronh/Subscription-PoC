@@ -17,14 +17,15 @@ async function main() {
   // manually to make sure everything is compiled
   // await hre.run('compile');
 
-  const rinkebyRRP = "0xC11593B87f258672b8eB02d9A723a429b15E9E03";
+  // const rinkebyRRP = "0xC11593B87f258672b8eB02d9A723a429b15E9E03";
+  const ropstenRRP = "0x3B35250Ca54C1Fb8c83D48F21231ef6e4fb9f79D";
 
   const contractName = "Requester";
 
   // We get the contract to deploy
   const Requester = await hre.ethers.getContractFactory(contractName);
   //   console.log(Greeter);
-  const requester = await Requester.deploy(rinkebyRRP);
+  const requester = await Requester.deploy(ropstenRRP);
 
   await requester.deployed();
   console.log("Deployed!");
@@ -57,7 +58,7 @@ async function main() {
 
   console.log(`\n\nRequester deployed to: ${requester.address}\n`);
   console.log(
-    `Please visit http://13.233.252.69/ to pay for whitelisting!\n\n`
+    `Please visit http://13.233.252.69/product/api-subscription/ to pay for whitelisting!\n\n`
   );
 
   //   console.log("Greeter deployed to:", greeter.address);

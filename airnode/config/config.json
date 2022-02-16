@@ -12,6 +12,19 @@
         }
       },
       "type": "evm"
+    },
+    {
+      "authorizers": ["0x8aD9788cFDFc97EDEf0Cb45bd5236B852C44f691"],
+      "contracts": {
+        "AirnodeRrp": "0x3B35250Ca54C1Fb8c83D48F21231ef6e4fb9f79D"
+      },
+      "id": "3",
+      "providers": {
+        "Ropsten": {
+          "url": "${Ropsten_PROVIDER_URL}"
+        }
+      },
+      "type": "evm"
     }
   ],
   "nodeSettings": {

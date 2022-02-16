@@ -25,7 +25,11 @@ module.exports = {
   solidity: "0.8.9",
   networks: {
     rinkeby: {
-      url: process.env.PROVIDER_URL,
+      url: process.env.Rinkeby_PROVIDER_URL,
+      accounts: [wallet.privateKey],
+    },
+    ropsten: {
+      url: process.env.Ropsten_PROVIDER_URL,
       accounts: [wallet.privateKey],
     },
     // hardhat: {
